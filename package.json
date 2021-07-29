@@ -1,0 +1,31 @@
+{
+  "name": "web-assembly-example",
+  "version": "1.0.0",
+  "description": "Various examples of WebAssembly",
+  "main": "index.js",
+  "scripts": {
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release -d",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "test": "asp --verbose",
+    "test:ci": "asp --summary",
+    "wasibuild": "asc assembly/wasi-examples.ts -b src/wasi-examples/wasi-examples.wasm -t src/wasi-examples/wasi-examples.wat",
+    "wasmtime": "wasmtime src/wasi-examples/wasi-examples.wasm",
+    "tsbuild": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@assemblyscript/loader": "^0.19.4",
+    "as-bind": "^0.7.1",
+    "as-wasi": "^0.4.6",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@as-pect/cli": "^6.2.4",
+    "@types/node": "^16.3.1",
+    "assemblyscript": "^0.19.4",
+    "typescript": "^4.3.5"
+  }
+}
